@@ -24,6 +24,11 @@ isLoggedIn$.subscribe(isLoggedIn => {
   loginButton.style.display = isLoggedIn ? 'none' : 'block';
 });
 
+// fromEvent(printStateButton, 'click').subscribe(() =>
+//   console.log('User logged in? ', isLoggedIn$.value)
+// );
+
+// More common way
 fromEvent(printStateButton, 'click')
   .pipe(withLatestFrom(isLoggedIn$))
   .subscribe(([event, isLoggedIn]) =>
